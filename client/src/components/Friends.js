@@ -47,7 +47,7 @@ export const Friends = ({ user,change,setChange }) => {
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>Id</th>
+              <th>User ID</th>
               <th>Username</th>
               <th>Name</th>
               <th>Money to Send</th>

@@ -52,7 +52,7 @@ export const AllUsers = ({ user }) => {
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>Id</th>
+              <th>User ID</th>
               <th>Username</th>
               <th>Name</th>
               <th>Operations</th>
