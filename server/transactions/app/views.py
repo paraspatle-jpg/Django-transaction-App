@@ -71,7 +71,7 @@ def transactions(request):
         today = date.today()
         body = json.loads(body_unicode)
         transaction = Transaction()
-        transaction.amount = body['amount']
+        transaction.amount = int(body['amount'])
         transaction.description = body['description']
         transaction.sender = request.user.username
         transaction.reciever = body['reciever']

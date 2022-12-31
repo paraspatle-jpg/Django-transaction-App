@@ -3,6 +3,7 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import { useModal } from "../customHooks/useModal";
 import { SendMoneyForm } from "./SendMoneyForm";
+import {toast} from "react-toastify"
 
 export const Friends = ({ user,change,setChange }) => {
   const [friends, setFriends] = useState([]);
@@ -24,6 +25,7 @@ export const Friends = ({ user,change,setChange }) => {
     if (res.status === 200) {
       setFriends(() => [data.friends]);
     } else {
+      toast.error("Something went wrong!!");
     }
   };
   useEffect(() => {

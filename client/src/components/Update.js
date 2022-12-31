@@ -25,7 +25,7 @@ export const Update = ({ selected,setSelected, handleClose, user, setChange }) =
       setChange((prev) => prev + 1);
       handleClose();
     } else {
-      toast.error("Failed");
+      toast.error("Failed!! Try Again");
     }
   };
   const handleClick = async () => {

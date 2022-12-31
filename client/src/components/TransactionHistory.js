@@ -55,6 +55,7 @@ export const TransactionHistory = ({ user, setChange, change }) => {
     if (res.status === 200) {
       setTransactions(() => [...data.sent, ...data.recieved]);
     } else {
+      toast.error("Something went wrong!!");
     }
   };
   useEffect(() => {
@@ -73,6 +74,7 @@ export const TransactionHistory = ({ user, setChange, change }) => {
       setChange((prev) => prev + 1);
       setTransactions(() => temp);
     } else {
+      toast.error("Failed!! Try Again");
     }
   };
 

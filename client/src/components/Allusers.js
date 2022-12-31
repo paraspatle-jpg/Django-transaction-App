@@ -16,6 +16,7 @@ export const AllUsers = ({ user }) => {
     if (res.status === 200) {
       setAllUsers(() => [data.allUsers]);
     } else {
+      toast.error("Something went wrong!!");
     }
   };
   useEffect(() => {
@@ -34,6 +35,9 @@ export const AllUsers = ({ user }) => {
       toast.success("Friend added successfully!!");
     } else if(res.status===409) {
       toast.info("Already Friends!!");
+    }
+    else{
+      toast.error("Failed!! Try Again");
     }
   };
 

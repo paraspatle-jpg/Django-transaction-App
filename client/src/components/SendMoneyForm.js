@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-export const SendMoneyForm = ({ selected, handleClose, user,setChange }) => {
-  const [transaction, setTransaction] = useState();
+export const SendMoneyForm = ({ selected, handleClose, user, setChange }) => {
+  const [transaction, setTransaction] = useState([]);
   const sendMoney = async () => {
     const response = await fetch(`http://localhost:8000/api/transactions/`, {
       method: "POST",
@@ -19,18 +19,20 @@ export const SendMoneyForm = ({ selected, handleClose, user,setChange }) => {
     });
     if (response.status === 201) {
       toast.success("Sent Money");
-      setChange((prev)=>prev+1)
+      setChange((prev) => prev + 1);
+      handleClose();
     } else {
-      toast.error("Failed");
+      toast.error("Failed!! Try again");
     }
   };
-  const handleClick = async () => {
-    setTransaction((prev) => ({
-      ...prev,
-      amount: parseInt(prev.amount),
+
+  useEffect(() => {
+    setTransaction(() => ({
+      ...transaction,
       reciever: selected,
     }));
-    setTransaction((prev) => ({ ...prev }));
+  }, [selected]);
+  const handleClick = async () => {
     sendMoney();
   };
   const handleChange = (e) => {
