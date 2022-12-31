@@ -38,13 +38,13 @@ export const Login = ({ setToggle, setUser2 }) => {
         style={{
           width: "500px",
           margin: "auto",
-          marginTop: "200px",
-          border: "1px solid black",
-          padding: "10px",
+          marginTop: "100px",
+          border: "3px solid grey",
+          padding: "30px",
           borderRadius: "5px",
         }}
       >
-        <div style={{ textAlign: "center" }}>Login</div>
+        <h4 style={{ textAlign: "center" }}>Login</h4>
         <Form>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Username</Form.Label>
@@ -69,12 +69,13 @@ export const Login = ({ setToggle, setUser2 }) => {
             Submit
           </Button>
           <Button
-            variant="primary"
+            variant="info"
+            style={{float:'right'}}
             onClick={() =>
               setToggle(<Register setToggle={setToggle} setUser2={setUser2} />)
             }
           >
-            Register
+            New User ? Register
           </Button>
         </Form>
       </div>
